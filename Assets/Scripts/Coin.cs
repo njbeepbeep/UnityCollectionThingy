@@ -1,19 +1,28 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-
 public class Coin : MonoBehaviour
-{
-    // Start is called before the first frame update
-    void Start()
-    {
-       // Debug.Log("Object Created");
 
+{
+    //Keeps track of total coin count in scene
+
+    public static int CoinCount = 0;
+
+    void Start()
+
+    {
+        //Object created, increment coin count
+        ++Coin.CoinCount;
     }
 
-    // Update is called once per frame
-    void Update()
+    //Called when object is destroyed
+
+    void OnDestroy()
+
     {
-        
+        --Coin.CoinCount;
+
+        if (Coin.CoinCount <= 0)
+
+        {
+            //We have won
+        }
     }
 }
