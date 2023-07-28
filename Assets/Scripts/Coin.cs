@@ -4,10 +4,15 @@ using UnityEngine;
 
 public class Coin : MonoBehaviour
 {
+    // Keeps track of the total coin count
+    public static int CoinCount = 0;
+
     // Start is called before the first frame update
     void Start()
     {
-       // Debug.Log("Object Created");
+        // Debug.Log("Object Created");
+
+        ++Coin.CoinCount;
 
     }
 
@@ -15,5 +20,14 @@ public class Coin : MonoBehaviour
     void Update()
     {
         
+    }
+
+    private void OnDestroy()
+    {
+        --Coin.CoinCount;
+        if(Coin.CoinCount <= 1)
+        {
+            // Yay!
+        }
     }
 }
